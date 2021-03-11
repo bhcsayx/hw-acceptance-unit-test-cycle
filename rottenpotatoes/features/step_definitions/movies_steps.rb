@@ -23,3 +23,8 @@ Then /I should see all the movies/ do
     step %{I should see "#{movie.title}"}
   end
 end
+
+Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |mov, dir|
+  #Make sure that director information is correct
+  Movie.find_by_title(mov).director == dir
+end
